@@ -108,7 +108,7 @@ namespace ProyectoTBD
                 cmd = new SqlCommand();
                 cmd.Connection = conn;
                 cmd.CommandType = CommandType.Text;
-                //Ingresar un nuevo usuario
+                //Ingresar un nuevo usuario 
                 cmd.CommandText = "insert into Ventas.Clientes (Nombre, email, Telefono) values ('" + textBox2.Text + "', '" + textBox3.Text + "','" + textBox4.Text + "')";
 
                 try
@@ -119,7 +119,84 @@ namespace ProyectoTBD
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error:", ex.Message);
+                    MessageBox.Show("Error:" + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+                limpiar();
+
+                //Ejecutar el evento load para poder agregar el nuevo registro al comboBox
+                Clientes_Load(sender, e);
+            }
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if ((textBox2.Text == "") || (textBox3.Text == "") || (textBox4.Text == ""))
+            {
+                MessageBox.Show("No se pueden guardar registros con campos en blanco...");
+            }
+            else
+            {
+                conn.Open();
+                cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandType = CommandType.Text;
+                //Modificar un usuario existente 
+                cmd.CommandText = "update Ventas.Clientes set Nombre = '" + textBox2.Text + "', " +
+                    "email = '" + textBox3.Text + "', Telefono = '" + textBox4.Text + "'" +
+                    " where ClienteID = " + Convert.ToInt32(textBox1.Text);
+
+                try
+                {
+                    //Variable por la que a traves se hacen las operaciones en la base de datos
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Informacion del cliente modificada correctamente...");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error:" + ex.Message);
+                }
+                finally
+                {
+                    conn.Close();
+                }
+                limpiar();
+
+                //Ejecutar el evento load para poder agregar el nuevo registro al comboBox
+                Clientes_Load(sender, e);
+            }
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if ((textBox2.Text == "") || (textBox3.Text == "") || (textBox4.Text == ""))
+            {
+                MessageBox.Show("No se pueden eliminar registros con campos en blanco...");
+            }
+            else
+            {
+                conn.Open();
+                cmd = new SqlCommand();
+                cmd.Connection = conn;
+                cmd.CommandType = CommandType.Text;
+                //Modificar un usuario existente 
+                cmd.CommandText = "delete from Ventas.Clientes"+ 
+                    " where ClienteID = " + Convert.ToInt32(textBox1.Text);
+
+                try
+                {
+                    //Variable por la que a traves se hacen las operaciones en la base de datos
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Informacion del cliente eliminada correctamente...");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error:" + ex.Message);
                 }
                 finally
                 {

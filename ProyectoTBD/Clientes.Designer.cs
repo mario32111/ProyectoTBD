@@ -157,6 +157,7 @@
             button4.TabIndex = 12;
             button4.Text = "Modificar";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button5
             // 
@@ -166,6 +167,7 @@
             button5.TabIndex = 13;
             button5.Text = "Eliminar";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // Clientes
             // 
