@@ -25,5 +25,10 @@ namespace ProyectoTBD
             Clientes cli = new Clientes();
             cli.ShowDialog();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
