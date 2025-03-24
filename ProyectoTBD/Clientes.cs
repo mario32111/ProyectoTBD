@@ -13,10 +13,10 @@ namespace ProyectoTBD
 {
     public partial class Clientes : Form
     {
-        SqlConnection conn;
-        SqlCommand cmd;
-        SqlDataReader rdr; // Change SqlDataAdapter to SqlDataReader
-        DataTable dt;
+        SqlConnection conn; //objeto para hacer la conexion
+        SqlCommand cmd;//objeto que ejecuta las operaciones sobre esa conexion
+        SqlDataReader rdr; // Change SqlDataAdapter to SqlDataReader, operaciones de consulta
+        DataTable dt; //operaciones en local en una table, pero no en la bd
         public Clientes()
         {
             InitializeComponent();
@@ -31,6 +31,7 @@ namespace ProyectoTBD
 
         private void Clientes_Load(object sender, EventArgs e)
         {
+            //el data sourde es para dare valor a el combobox
             comboBox1.DataSource = null;
             comboBox1.Items.Clear();
             conn.Open();
@@ -40,7 +41,7 @@ namespace ProyectoTBD
             cmd.CommandText = "select * from Ventas.Clientes";
             try
             {
-                rdr = cmd.ExecuteReader();
+                rdr = cmd.ExecuteReader();//esto en caso de la conslta a realizar retorne una tabla, si es escalar se usa ExecuteScalar
                 dt.Rows.Clear();
                 dt.Load(rdr);//Se carga el datatable a partir del Datareader
                 comboBox1.DataSource = dt; //Se establece como fuente de datos del combo
@@ -153,7 +154,7 @@ namespace ProyectoTBD
                 try
                 {
                     //Variable por la que a traves se hacen las operaciones en la base de datos
-                    cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();//cuando la operacion es un insert, delete y modify
                     MessageBox.Show("Informacion del cliente modificada correctamente...");
                 }
                 catch (Exception ex)
@@ -185,7 +186,7 @@ namespace ProyectoTBD
                 cmd.Connection = conn;
                 cmd.CommandType = CommandType.Text;
                 //Modificar un usuario existente 
-                cmd.CommandText = "delete from Ventas.Clientes"+ 
+                cmd.CommandText = "delete from Ventas.Clientes" +
                     " where ClienteID = " + Convert.ToInt32(textBox1.Text);
 
                 try
@@ -208,6 +209,127 @@ namespace ProyectoTBD
                 Clientes_Load(sender, e);
             }
 
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            //el data sourde es para dare valor a el combobox
+            comboBox1.DataSource = null;
+            comboBox1.Items.Clear();
+            conn.Open();
+            cmd = new SqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandType = CommandType.Text;
+            //ejemplo de subconsulta
+            cmd.CommandText = "select * from Ventas.Clientes where Nombre like '%" +
+                textBox2.Text + "%' and ClienteId in (select ClienteId from Ventas.Clientes where Email like '%@gmail.com')";
+            try
+            {
+                rdr = cmd.ExecuteReader();//esto en caso de la conslta a realizar retorne una tabla, si es escalar se usa ExecuteScalar
+                dt.Rows.Clear();
+                dt.Load(rdr);//Se carga el datatable a partir del Datareader
+                dataGridView1.DataSource = dt; //Se establece como fuente de datos del combo
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            limpiar();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            //el data sourde es para dare valor a el combobox
+            comboBox1.DataSource = null;
+            comboBox1.Items.Clear();
+            conn.Open();
+            cmd = new SqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandType = CommandType.Text;
+            //ejemplo de subconsulta con multiples tablas
+            cmd.CommandText = "select * from Ventas.Clientes where ClienteID in (select distinct ClienteID from Pedidos)";
+            try
+            {
+                rdr = cmd.ExecuteReader();//esto en caso de la conslta a realizar retorne una tabla, si es escalar se usa ExecuteScalar
+                dt.Rows.Clear();
+                dt.Load(rdr);//Se carga el datatable a partir del Datareader
+                dataGridView1.DataSource = dt; //Se establece como fuente de datos del combo
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            limpiar();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            //el data sourde es para dare valor a el combobox
+            comboBox1.DataSource = null;
+            comboBox1.Items.Clear();
+            conn.Open();
+            cmd = new SqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandType = CommandType.Text;
+            //ejemplo de subconsulta con multiples tablas, con operador de agregacion
+            cmd.CommandText = "select ClienteID, Nombre, (select sum(Total) from Pedidos where Pedidos.ClienteID= Ventas.Clientes.ClienteID) " +
+                "as TotalPeidos from Ventas.Clientes where ClienteID in (select distinct ClienteID from Pedidos)";
+            try
+            {
+                rdr = cmd.ExecuteReader();//esto en caso de la conslta a realizar retorne una tabla, si es escalar se usa ExecuteScalar
+                dt.Columns.Clear();
+                dt.Rows.Clear();
+                dt.Load(rdr);//Se carga el datatable a partir del Datareader
+                dataGridView1.DataSource = dt; //Se establece como fuente de datos del combo
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            limpiar();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            //el data sourde es para dare valor a el combobox
+            comboBox1.DataSource = null;
+            comboBox1.Items.Clear();
+            conn.Open();
+            cmd = new SqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandType = CommandType.Text;
+            //ejemplo de subconsulta con multiples tablas, con operador de agregacion
+            cmd.CommandText = "select ClienteID, Nombre, (select avg(Total) from Pedidos where Pedidos.ClienteID= Ventas.Clientes.ClienteID) " +
+                "as TotalPeidos from Ventas.Clientes where ClienteID in (select distinct ClienteID from Pedidos)";
+            try
+            {
+                rdr = cmd.ExecuteReader();//esto en caso de la conslta a realizar retorne una tabla, si es escalar se usa ExecuteScalar
+                dt.Columns.Clear();
+                dt.Rows.Clear();
+                dt.Load(rdr);//Se carga el datatable a partir del Datareader
+                dataGridView1.DataSource = dt; //Se establece como fuente de datos del combo
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            limpiar();
         }
     }
 }
