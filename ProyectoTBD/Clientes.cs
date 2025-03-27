@@ -331,5 +331,187 @@ namespace ProyectoTBD
             }
             limpiar();
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            //el data sourde es para dare valor a el combobox
+            comboBox1.DataSource = null;
+            comboBox1.Items.Clear();
+            conn.Open();
+            cmd = new SqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandType = CommandType.Text;
+            //ejemplo de subconsulta con multiples tablas, con operador de agregacion
+            cmd.CommandText = "select ClienteID, (select count(*) from Pedidos where Pedidos.ClienteID = Ventas.Clientes.ClienteID) as CantidadPedidos" +
+                " from Ventas.Clientes where ClienteID in (select distinct ClienteID from Pedidos)";
+            try
+            {
+                rdr = cmd.ExecuteReader();//esto en caso de la conslta a realizar retorne una tabla, si es escalar se usa ExecuteScalar
+                dt.Columns.Clear();
+                dt.Rows.Clear();
+                dt.Load(rdr);//Se carga el datatable a partir del Datareader
+                dataGridView1.DataSource = dt; //Se establece como fuente de datos del combo
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            limpiar();
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            //el data sourde es para dare valor a el combobox
+            comboBox1.DataSource = null;
+            comboBox1.Items.Clear();
+            conn.Open();
+            cmd = new SqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandType = CommandType.Text;
+            //ejemplo de subconsulta con multiples tablas, con operador de agregacion
+            cmd.CommandText = "select ClienteID, (select max(Total) from Pedidos where Pedidos.ClienteID = Ventas.Clientes.ClienteID) as PedidoMayor" +
+                " from Ventas.Clientes where ClienteID in (select distinct ClienteID from Pedidos)";
+            try
+            {
+                rdr = cmd.ExecuteReader();//esto en caso de la conslta a realizar retorne una tabla, si es escalar se usa ExecuteScalar
+                dt.Columns.Clear();
+                dt.Rows.Clear();
+                dt.Load(rdr);//Se carga el datatable a partir del Datareader
+                dataGridView1.DataSource = dt; //Se establece como fuente de datos del combo
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            limpiar();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            //el data sourde es para dare valor a el combobox
+            comboBox1.DataSource = null;
+            comboBox1.Items.Clear();
+            conn.Open();
+            cmd = new SqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandType = CommandType.Text;
+            //ejemplo de subconsulta con multiples tablas, con operador de agregacion
+            cmd.CommandText = "select c.ClienteID, c.Nombre, sum(p.Total) as TotalPedidos from Ventas.Clientes c inner join Pedidos p on c.ClienteID = p.ClienteID group by c.ClienteID, c.Nombre";
+            try
+            {
+                rdr = cmd.ExecuteReader();//esto en caso de la conslta a realizar retorne una tabla, si es escalar se usa ExecuteScalar
+                dt.Columns.Clear();
+                dt.Rows.Clear();
+                dt.Load(rdr);//Se carga el datatable a partir del Datareader
+                dataGridView1.DataSource = dt; //Se establece como fuente de datos del combo
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            limpiar();
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            //el data sourde es para dare valor a el combobox
+            comboBox1.DataSource = null;
+            comboBox1.Items.Clear();
+            conn.Open();
+            cmd = new SqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandType = CommandType.Text;
+            //ejemplo de subconsulta con multiples tablas, con operador de agregacion
+            cmd.CommandText = "select ClienteID from Ventas.Clientes union select ClienteID from Pedidos";
+            try
+            {
+                rdr = cmd.ExecuteReader();//esto en caso de la conslta a realizar retorne una tabla, si es escalar se usa ExecuteScalar
+                dt.Columns.Clear();
+                dt.Rows.Clear();
+                dt.Load(rdr);//Se carga el datatable a partir del Datareader
+                dataGridView1.DataSource = dt; //Se establece como fuente de datos del combo
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            limpiar();
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            //el data sourde es para dare valor a el combobox
+            comboBox1.DataSource = null;
+            comboBox1.Items.Clear();
+            conn.Open();
+            cmd = new SqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandType = CommandType.Text;
+            //ejemplo de subconsulta con multiples tablas, con operador de agregacion
+            cmd.CommandText = "select ClienteID from Ventas.Clientes intersect select ClienteID from Pedidos";
+            try
+            {
+                rdr = cmd.ExecuteReader();//esto en caso de la conslta a realizar retorne una tabla, si es escalar se usa ExecuteScalar
+                dt.Columns.Clear();
+                dt.Rows.Clear();
+                dt.Load(rdr);//Se carga el datatable a partir del Datareader
+                dataGridView1.DataSource = dt; //Se establece como fuente de datos del combo
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            limpiar();
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            //el data sourde es para dare valor a el combobox
+            comboBox1.DataSource = null;
+            comboBox1.Items.Clear();
+            conn.Open();
+            cmd = new SqlCommand();
+            cmd.Connection = conn;
+            cmd.CommandType = CommandType.Text;
+            //ejemplo de subconsulta con multiples tablas, con operador de agregacion
+            cmd.CommandText = "select ClienteID from Ventas.Clientes except select ClienteID from Pedidos";
+            try
+            {
+                rdr = cmd.ExecuteReader();//esto en caso de la conslta a realizar retorne una tabla, si es escalar se usa ExecuteScalar
+                dt.Columns.Clear();
+                dt.Rows.Clear();
+                dt.Load(rdr);//Se carga el datatable a partir del Datareader
+                dataGridView1.DataSource = dt; //Se establece como fuente de datos del combo
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al leer: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+            limpiar();
+        }
     }
 }
