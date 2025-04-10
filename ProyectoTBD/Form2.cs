@@ -40,12 +40,12 @@ namespace ProyectoTBD
             {
                 con.Open();
                 MessageBox.Show("Inicio de sesion exitoso");
-                Form form1 = new Form1();
-                form1.Show();
+                this.Close();
             }
             catch(Exception ex)
             {
                 MessageBox.Show("Error al iniciar sesion...."+ ex.Message);
+                Application.Exit();
             }
         }
     }

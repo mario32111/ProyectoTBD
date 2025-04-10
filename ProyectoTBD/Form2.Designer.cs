@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             button1 = new Button();
             label1 = new Label();
             label2 = new Label();
@@ -37,61 +38,42 @@
             // 
             // button1
             // 
-            button1.Location = new Point(75, 96);
+            resources.ApplyResources(button1, "button1");
             button1.Name = "button1";
-            button1.Size = new Size(111, 33);
-            button1.TabIndex = 0;
-            button1.Text = "Iniciar Sesion";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(22, 9);
+            resources.ApplyResources(label1, "label1");
             label1.Name = "label1";
-            label1.Size = new Size(47, 15);
-            label1.TabIndex = 1;
-            label1.Text = "Usuario";
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(2, 64);
+            resources.ApplyResources(label2, "label2");
             label2.Name = "label2";
-            label2.Size = new Size(67, 15);
-            label2.TabIndex = 2;
-            label2.Text = "Contraseña";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(75, 6);
+            resources.ApplyResources(textBox1, "textBox1");
             textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Escribe el nombre de usuario";
-            textBox1.Size = new Size(159, 23);
-            textBox1.TabIndex = 3;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(75, 56);
+            resources.ApplyResources(textBox2, "textBox2");
             textBox2.Name = "textBox2";
-            textBox2.PasswordChar = '*';
-            textBox2.PlaceholderText = "Escribe la contraseña";
-            textBox2.Size = new Size(159, 23);
-            textBox2.TabIndex = 4;
             // 
             // Form2
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(252, 153);
+            ControlBox = false;
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(button1);
             Name = "Form2";
-            Text = "Login";
             Load += Form2_Load;
             ResumeLayout(false);
             PerformLayout();

@@ -53,7 +53,22 @@
             button13 = new Button();
             button14 = new Button();
             button15 = new Button();
+            groupBox1 = new GroupBox();
+            button28 = new Button();
+            button27 = new Button();
+            button26 = new Button();
+            button25 = new Button();
+            button24 = new Button();
+            button23 = new Button();
+            button22 = new Button();
+            button21 = new Button();
+            button20 = new Button();
+            button19 = new Button();
+            button18 = new Button();
+            button17 = new Button();
+            button16 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // comboBox1
@@ -251,7 +266,7 @@
             // 
             // button12
             // 
-            button12.Location = new Point(327, 272);
+            button12.Location = new Point(690, 262);
             button12.Name = "button12";
             button12.Size = new Size(75, 23);
             button12.TabIndex = 21;
@@ -261,7 +276,7 @@
             // 
             // button13
             // 
-            button13.Location = new Point(327, 301);
+            button13.Location = new Point(690, 291);
             button13.Name = "button13";
             button13.Size = new Size(75, 23);
             button13.TabIndex = 22;
@@ -271,7 +286,7 @@
             // 
             // button14
             // 
-            button14.Location = new Point(327, 337);
+            button14.Location = new Point(690, 327);
             button14.Name = "button14";
             button14.Size = new Size(75, 23);
             button14.TabIndex = 23;
@@ -281,7 +296,7 @@
             // 
             // button15
             // 
-            button15.Location = new Point(417, 272);
+            button15.Location = new Point(780, 262);
             button15.Name = "button15";
             button15.Size = new Size(75, 23);
             button15.TabIndex = 24;
@@ -289,12 +304,166 @@
             button15.UseVisualStyleBackColor = true;
             button15.Click += button15_Click;
             // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(button28);
+            groupBox1.Controls.Add(button27);
+            groupBox1.Controls.Add(button26);
+            groupBox1.Controls.Add(button25);
+            groupBox1.Controls.Add(button24);
+            groupBox1.Controls.Add(button23);
+            groupBox1.Controls.Add(button22);
+            groupBox1.Controls.Add(button21);
+            groupBox1.Controls.Add(button20);
+            groupBox1.Controls.Add(button19);
+            groupBox1.Controls.Add(button18);
+            groupBox1.Controls.Add(button17);
+            groupBox1.Controls.Add(button16);
+            groupBox1.Location = new Point(15, 291);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(277, 122);
+            groupBox1.TabIndex = 25;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Examen";
+            groupBox1.Enter += groupBox1_Enter;
+            // 
+            // button28
+            // 
+            button28.Location = new Point(119, 80);
+            button28.Name = "button28";
+            button28.Size = new Size(45, 23);
+            button28.TabIndex = 12;
+            button28.Text = "13";
+            button28.UseVisualStyleBackColor = true;
+            button28.Click += button28_Click;
+            // 
+            // button27
+            // 
+            button27.Location = new Point(64, 80);
+            button27.Name = "button27";
+            button27.Size = new Size(45, 23);
+            button27.TabIndex = 11;
+            button27.Text = "12";
+            button27.UseVisualStyleBackColor = true;
+            button27.Click += button27_Click;
+            // 
+            // button26
+            // 
+            button26.Location = new Point(6, 80);
+            button26.Name = "button26";
+            button26.Size = new Size(45, 23);
+            button26.TabIndex = 10;
+            button26.Text = "11";
+            button26.UseVisualStyleBackColor = true;
+            button26.Click += button26_Click;
+            // 
+            // button25
+            // 
+            button25.Location = new Point(221, 51);
+            button25.Name = "button25";
+            button25.Size = new Size(45, 23);
+            button25.TabIndex = 9;
+            button25.Text = "10";
+            button25.UseVisualStyleBackColor = true;
+            button25.Click += button25_Click;
+            // 
+            // button24
+            // 
+            button24.Location = new Point(170, 51);
+            button24.Name = "button24";
+            button24.Size = new Size(45, 23);
+            button24.TabIndex = 8;
+            button24.Text = "9";
+            button24.UseVisualStyleBackColor = true;
+            button24.Click += button24_Click;
+            // 
+            // button23
+            // 
+            button23.Location = new Point(119, 51);
+            button23.Name = "button23";
+            button23.Size = new Size(45, 23);
+            button23.TabIndex = 7;
+            button23.Text = "8";
+            button23.UseVisualStyleBackColor = true;
+            button23.Click += button23_Click;
+            // 
+            // button22
+            // 
+            button22.Location = new Point(64, 51);
+            button22.Name = "button22";
+            button22.Size = new Size(45, 23);
+            button22.TabIndex = 6;
+            button22.Text = "7";
+            button22.UseVisualStyleBackColor = true;
+            button22.Click += button22_Click;
+            // 
+            // button21
+            // 
+            button21.Location = new Point(6, 51);
+            button21.Name = "button21";
+            button21.Size = new Size(45, 23);
+            button21.TabIndex = 5;
+            button21.Text = "6";
+            button21.UseVisualStyleBackColor = true;
+            button21.Click += button21_Click;
+            // 
+            // button20
+            // 
+            button20.Location = new Point(221, 22);
+            button20.Name = "button20";
+            button20.Size = new Size(45, 23);
+            button20.TabIndex = 4;
+            button20.Text = "5";
+            button20.UseVisualStyleBackColor = true;
+            button20.Click += button20_Click;
+            // 
+            // button19
+            // 
+            button19.Location = new Point(170, 22);
+            button19.Name = "button19";
+            button19.Size = new Size(45, 23);
+            button19.TabIndex = 3;
+            button19.Text = "4";
+            button19.UseVisualStyleBackColor = true;
+            button19.Click += button19_Click;
+            // 
+            // button18
+            // 
+            button18.Location = new Point(119, 22);
+            button18.Name = "button18";
+            button18.Size = new Size(45, 23);
+            button18.TabIndex = 2;
+            button18.Text = "3";
+            button18.UseVisualStyleBackColor = true;
+            button18.Click += button18_Click;
+            // 
+            // button17
+            // 
+            button17.Location = new Point(64, 22);
+            button17.Name = "button17";
+            button17.Size = new Size(45, 23);
+            button17.TabIndex = 1;
+            button17.Text = "2";
+            button17.UseVisualStyleBackColor = true;
+            button17.Click += button17_Click;
+            // 
+            // button16
+            // 
+            button16.Location = new Point(6, 22);
+            button16.Name = "button16";
+            button16.Size = new Size(45, 23);
+            button16.TabIndex = 0;
+            button16.Text = "1";
+            button16.UseVisualStyleBackColor = true;
+            button16.Click += button16_Click_1;
+            // 
             // Clientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(876, 372);
+            ClientSize = new Size(869, 443);
             ControlBox = false;
+            Controls.Add(groupBox1);
             Controls.Add(button15);
             Controls.Add(button14);
             Controls.Add(button13);
@@ -326,6 +495,7 @@
             Text = "Clientes";
             Load += Clientes_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            groupBox1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -357,5 +527,19 @@
         private Button button13;
         private Button button14;
         private Button button15;
+        private GroupBox groupBox1;
+        private Button button28;
+        private Button button27;
+        private Button button26;
+        private Button button25;
+        private Button button24;
+        private Button button23;
+        private Button button22;
+        private Button button21;
+        private Button button20;
+        private Button button19;
+        private Button button18;
+        private Button button17;
+        private Button button16;
     }
 }
