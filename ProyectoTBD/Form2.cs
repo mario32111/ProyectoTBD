@@ -33,7 +33,7 @@ namespace ProyectoTBD
             con = new SqlConnection(
                  "Server =localhost;" +
                  "Initial Catalog=Tienda;" +
-                 $"User= {user}; Password = {pass};"+
+                 $"User= {user}; Password = {pass};" +
                  "Trust server certificate = True");
 
             try
@@ -42,10 +42,18 @@ namespace ProyectoTBD
                 MessageBox.Show("Inicio de sesion exitoso");
                 this.Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                MessageBox.Show("Error al iniciar sesion...."+ ex.Message);
+                MessageBox.Show("Error al iniciar sesion...." + ex.Message);
                 Application.Exit();
+            }
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((Keys)e.KeyChar == Keys.Enter)
+            {
+                button1_Click(sender, e);
             }
         }
     }

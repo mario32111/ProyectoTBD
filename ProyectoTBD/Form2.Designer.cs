@@ -62,6 +62,7 @@
             // 
             resources.ApplyResources(textBox2, "textBox2");
             textBox2.Name = "textBox2";
+            textBox2.KeyPress += textBox2_KeyPress;
             // 
             // Form2
             // 

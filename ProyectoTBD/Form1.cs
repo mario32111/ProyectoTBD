@@ -94,5 +94,11 @@ namespace ProyectoTBD
                 con.Close();
             }
         }
+
+        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Productos prod = new Productos();
+            prod.ShowDialog();
+        }
     }
 }
