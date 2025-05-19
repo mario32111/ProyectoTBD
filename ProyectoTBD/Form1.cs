@@ -100,5 +100,11 @@ namespace ProyectoTBD
             Productos prod = new Productos();
             prod.ShowDialog();
         }
+
+        private void pedidosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Pedidos ped = new Pedidos();
+            ped.ShowDialog();
+        }
     }
 }
