@@ -196,5 +196,10 @@ namespace ProyectoTBD
                 con.Close();
             }
         }
+
+        private void Productos_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

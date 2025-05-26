@@ -39,7 +39,23 @@ namespace ProyectoTBD
             try
             {
                 con.Open();
-                MessageBox.Show("Inicio de sesion exitoso");
+
+                SqlCommand cmd = new SqlCommand("SELECT IS_MEMBER('Rol1');", con);
+                int esMiembro = (int)cmd.ExecuteScalar();
+
+                if (esMiembro == 1)
+                {
+                    MessageBox.Show("El usuario pertenece a Rol1 (acceso completo).");
+                }
+                else
+                {
+                    MessageBox.Show("El usuario NO pertenece a Rol1 (solo lectura).");
+                }
+                permisos menu = new permisos(esMiembro == 1); // convierte int a bool
+                menu.Show();
+
+                MessageBox.Show("Inicio de sesion con rol");
+
                 this.Close();
             }
             catch (Exception ex)

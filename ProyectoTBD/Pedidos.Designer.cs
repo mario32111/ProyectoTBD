@@ -41,6 +41,7 @@
             button3 = new Button();
             button4 = new Button();
             button5 = new Button();
+            button6 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -145,6 +146,7 @@
             button4.TabIndex = 12;
             button4.Text = "Consultar";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button5
             // 
@@ -155,11 +157,22 @@
             button5.Text = "Salir";
             button5.UseVisualStyleBackColor = true;
             // 
+            // button6
+            // 
+            button6.Location = new Point(196, 195);
+            button6.Name = "button6";
+            button6.Size = new Size(75, 52);
+            button6.TabIndex = 14;
+            button6.Text = "suma pedidos";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
+            // 
             // Pedidos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(301, 287);
+            Controls.Add(button6);
             Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(button3);
@@ -195,5 +208,6 @@
         private Button button3;
         private Button button4;
         private Button button5;
+        private Button button6;
     }
 }

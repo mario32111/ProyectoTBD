@@ -177,6 +177,7 @@
             Controls.Add(label1);
             Name = "Productos";
             Text = "Productos";
+            Load += Productos_Load;
             ResumeLayout(false);
             PerformLayout();
         }

@@ -106,5 +106,11 @@ namespace ProyectoTBD
             Pedidos ped = new Pedidos();
             ped.ShowDialog();
         }
+
+        private void restaurarConNombreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            respaldar2 r2 = new respaldar2();
+            r2.ShowDialog();
+        }
     }
 }
