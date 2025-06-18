@@ -112,5 +112,11 @@ namespace ProyectoTBD
             respaldar2 r2 = new respaldar2();
             r2.ShowDialog();
         }
+
+        private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Empleados emp = new Empleados();
+            emp.ShowDialog();
+        }
     }
 }

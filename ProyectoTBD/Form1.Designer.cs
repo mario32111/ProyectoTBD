@@ -37,9 +37,10 @@
             mantenimientoToolStripMenuItem = new ToolStripMenuItem();
             backupsToolStripMenuItem = new ToolStripMenuItem();
             restaurarToolStripMenuItem = new ToolStripMenuItem();
+            restaurarConNombreToolStripMenuItem = new ToolStripMenuItem();
             acercaDeToolStripMenuItem = new ToolStripMenuItem();
             salirToolStripMenuItem = new ToolStripMenuItem();
-            restaurarConNombreToolStripMenuItem = new ToolStripMenuItem();
+            empleadosToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -54,7 +55,7 @@
             // 
             // archivoToolStripMenuItem
             // 
-            archivoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { clientesToolStripMenuItem, pedidosToolStripMenuItem, productosToolStripMenuItem });
+            archivoToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { clientesToolStripMenuItem, pedidosToolStripMenuItem, productosToolStripMenuItem, empleadosToolStripMenuItem });
             archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             archivoToolStripMenuItem.Size = new Size(60, 20);
             archivoToolStripMenuItem.Text = "Archivo";
@@ -62,21 +63,21 @@
             // clientesToolStripMenuItem
             // 
             clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            clientesToolStripMenuItem.Size = new Size(128, 22);
+            clientesToolStripMenuItem.Size = new Size(180, 22);
             clientesToolStripMenuItem.Text = "Clientes";
             clientesToolStripMenuItem.Click += clientesToolStripMenuItem_Click;
             // 
             // pedidosToolStripMenuItem
             // 
             pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
-            pedidosToolStripMenuItem.Size = new Size(128, 22);
+            pedidosToolStripMenuItem.Size = new Size(180, 22);
             pedidosToolStripMenuItem.Text = "Pedidos";
             pedidosToolStripMenuItem.Click += pedidosToolStripMenuItem_Click;
             // 
             // productosToolStripMenuItem
             // 
             productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            productosToolStripMenuItem.Size = new Size(128, 22);
+            productosToolStripMenuItem.Size = new Size(180, 22);
             productosToolStripMenuItem.Text = "Productos";
             productosToolStripMenuItem.Click += productosToolStripMenuItem_Click;
             // 
@@ -101,6 +102,13 @@
             restaurarToolStripMenuItem.Text = "Restaurar";
             restaurarToolStripMenuItem.Click += restaurarToolStripMenuItem_Click;
             // 
+            // restaurarConNombreToolStripMenuItem
+            // 
+            restaurarConNombreToolStripMenuItem.Name = "restaurarConNombreToolStripMenuItem";
+            restaurarConNombreToolStripMenuItem.Size = new Size(195, 22);
+            restaurarConNombreToolStripMenuItem.Text = "Restaurar Con Nombre";
+            restaurarConNombreToolStripMenuItem.Click += restaurarConNombreToolStripMenuItem_Click;
+            // 
             // acercaDeToolStripMenuItem
             // 
             acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
@@ -115,12 +123,12 @@
             salirToolStripMenuItem.Text = "Salir";
             salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
             // 
-            // restaurarConNombreToolStripMenuItem
+            // empleadosToolStripMenuItem
             // 
-            restaurarConNombreToolStripMenuItem.Name = "restaurarConNombreToolStripMenuItem";
-            restaurarConNombreToolStripMenuItem.Size = new Size(195, 22);
-            restaurarConNombreToolStripMenuItem.Text = "Restaurar Con Nombre";
-            restaurarConNombreToolStripMenuItem.Click += restaurarConNombreToolStripMenuItem_Click;
+            empleadosToolStripMenuItem.Name = "empleadosToolStripMenuItem";
+            empleadosToolStripMenuItem.Size = new Size(180, 22);
+            empleadosToolStripMenuItem.Text = "Empleados";
+            empleadosToolStripMenuItem.Click += empleadosToolStripMenuItem_Click;
             // 
             // Form1
             // 
@@ -158,5 +166,6 @@
         private ToolStripMenuItem productosToolStripMenuItem;
         private ToolStripMenuItem pedidosToolStripMenuItem;
         private ToolStripMenuItem restaurarConNombreToolStripMenuItem;
+        private ToolStripMenuItem empleadosToolStripMenuItem;
     }
 }

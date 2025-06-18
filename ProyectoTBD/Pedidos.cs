@@ -29,7 +29,26 @@ namespace ProyectoTBD
 
         private void Pedidos_Load(object sender, EventArgs e)
         {
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+            com = new SqlCommand();
+            com.Connection = con;
+            com.CommandType = CommandType.Text;
+            com.CommandText = "select top 1 PedidoID from Pedidos order by PedidoID desc";
 
+            try
+            {
+                int valor = Convert.ToInt32(com.ExecuteScalar());
+                //valor = valor + 1;
+                textBox1.Text = valor.ToString();
+            }
+            catch (Exception ex) {
+                MessageBox.Show("Error al obtener el ID del pedido: " + ex.Message);
+            }
+            finally
+            {
+                con.Close();
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -59,6 +78,8 @@ namespace ProyectoTBD
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Detalles det  = new Detalles(Convert.ToInt32(textBox1.Text));
+            det.ShowDialog();
             if (con.State == ConnectionState.Closed)
                 con.Open();
             com = new SqlCommand();
